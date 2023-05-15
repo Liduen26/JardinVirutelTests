@@ -3,14 +3,15 @@ package jardin;
 import java.util.Scanner;
 
 public class InputReader {
-	Scanner sc;
 	
-	InputReader() {
+	private Scanner sc;
+	
+	public InputReader() {
 		sc = new Scanner(System.in);
 	}
 	
-	public int readIntValue() {
-		
-		return sc.nextInt();
-	}
+	public int readIntValue() {		
+		return sc.nextInt();		
+	}	
+
 }

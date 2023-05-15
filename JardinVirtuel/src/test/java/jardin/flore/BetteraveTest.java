@@ -10,17 +10,24 @@ import org.junit.jupiter.api.Test;
 public class BetteraveTest {
 	
 	@Test
-	public void testSeDuppliquer() {
+	public void testSeDupliquer() {
+		//Arrange
+		Betterave betterave = new Betterave();
+		betterave.grandir();
 		
 		int longueur = 5;
-		int largeur = 5;
-		Betterave b = new Betterave();
+		int largeur = 3;
 		
-		SimpleEntry<Integer, Integer> entry = b.seDupliquer(longueur, largeur);
+		//Act
+		SimpleEntry<Integer, Integer> result = betterave.seDupliquer(longueur, largeur);
+		int resultX = result.getKey();
+		int resultY = result.getValue();
 		
-		assertEquals(Etat.GRAINE, b.etat);
-		assertTrue((entry.getKey() >= 0) && (entry.getKey() < longueur));
-		assertTrue((entry.getValue() >= 0) && (entry.getValue() < largeur));
-		
+		//Assert
+		assertEquals(Etat.GRAINE, betterave.getEtat());
+		assertTrue(resultX >= 0 && resultX < longueur);
+		assertTrue(resultY >= 0 && resultY < largeur);		
 	}
+	
+
 }

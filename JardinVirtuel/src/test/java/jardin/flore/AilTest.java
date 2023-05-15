@@ -9,24 +9,31 @@ public class AilTest {
 
 	@Test
 	public void testSeReproduireVide() {
-		Ail ail = new Ail();
-		HashMap<String, Integer> panier = new HashMap<String, Integer>();
-		
+		// Arrange
+		HashMap<String, Integer> panier = new HashMap<>();
+		IRacePure ail = new Ail();
+		int expected = 3;
+
+		// Act
 		ail.seReproduire(panier);
-		
-		assertEquals(3, panier.get("Ail"));
-		
+
+		// Assert
+		assertEquals(expected, panier.get("Ail"));
 	}
-	
+
 	@Test
 	public void testSeReproduireNonVide() {
-		Ail ail = new Ail();
-		HashMap<String, Integer> panier = new HashMap<String, Integer>();
+		// Arrange
+		HashMap<String, Integer> panier = new HashMap<>();
 		panier.put("Ail", 2);
-		
+		IRacePure ail = new Ail();
+		int expected = 5;
+
+		// Act
 		ail.seReproduire(panier);
-		
-		assertEquals(5, panier.get("Ail"));
-		
+
+		// Assert
+		assertEquals(expected, panier.get("Ail"));
 	}
+
 }
