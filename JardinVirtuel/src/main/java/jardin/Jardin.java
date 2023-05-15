@@ -1,11 +1,10 @@
 package jardin;
 
+import java.util.AbstractMap.SimpleEntry;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.TreeSet;
-import java.util.AbstractMap.SimpleEntry;
 
 import jardin.flore.Ail;
 import jardin.flore.Betterave;
@@ -22,6 +21,12 @@ public class Jardin {
 	private int largeur;
 	private HashMap<String, Integer> panier;
 	private Emplacement emplacement[][];
+	
+	private InputReader inputReader = new InputReader();
+	
+	public void setInputReader(InputReader inputReader) {
+		this.inputReader = inputReader;
+	}
 	
 	public Emplacement[][] getEmplacement() {
 		return emplacement;
@@ -83,10 +88,10 @@ public class Jardin {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Indiquer l'axe X");
-		int x = sc.nextInt();
+		int x = inputReader.readIntValue();
 
 		System.out.println("Indiquer l'axe Y");
-		int y = sc.nextInt();
+		int y = inputReader.readIntValue();
 
 		System.out.println("Quel vegetal? (1. Ail , 2. Betterave , 3. Carotte , 4. Tomate");
 		int choiceVegetal = sc.nextInt();

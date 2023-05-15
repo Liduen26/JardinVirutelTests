@@ -22,5 +22,4 @@ public class Betterave extends Vegetal implements IOgm {
 		
 		return new SimpleEntry<>(newX,newY);
 	}
-
 }
