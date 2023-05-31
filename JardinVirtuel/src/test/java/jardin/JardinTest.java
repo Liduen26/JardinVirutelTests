@@ -18,6 +18,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import jardin.flore.Ail;
 import jardin.flore.Betterave;
+import jardin.flore.Carotte;
 import jardin.flore.Etat;
 
 @ExtendWith(MockitoExtension.class)
@@ -129,6 +130,20 @@ public class JardinTest {
 		
 		assertNull(j.getEmplacement()[0][0]);
 		assertNotNull(j.getEmplacement()[1][1]);		
+	}
+	
+	@Test
+	public void testToutCramer() {
+		// Arrange
+		j.getEmplacement()[0][1] = new Emplacement(new Ail());
+		j.getEmplacement()[0][2] = new Emplacement(new Carotte());
+		
+		// Act
+		j.toutCramer();
+		
+		// Assert
+		assertNull(j.getEmplacement()[0][1]);
+		assertNull(j.getEmplacement()[0][2]);
 	}
 
 }

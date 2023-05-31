@@ -3,7 +3,6 @@ package jardin;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.TreeSet;
 
 import jardin.flore.Ail;
@@ -17,19 +16,13 @@ import jardin.flore.Vegetal;
 
 public class Jardin {
 	
-	private InputReader inputReader = new InputReader();
-	
-	public void setInputReader(InputReader inputReader) {
-		this.inputReader = inputReader;
-	}	
+	private InputReader inputReader = new InputReader();	
 
 	private int longueur;
 	private int largeur;
 	private HashMap<String, Integer> panier;
 	private Emplacement emplacement[][];
-	
-	private InputReader inputReader = new InputReader();
-	
+		
 	public void setInputReader(InputReader inputReader) {
 		this.inputReader = inputReader;
 	}
@@ -181,4 +174,14 @@ public class Jardin {
 		}
 	}
 
+	public void toutCramer() {
+		for (int x = 0; x < this.longueur; x++) {
+			for (int y = 0; y < this.largeur; y++) {
+				Emplacement e = emplacement[x][y];
+				if (e != null) {
+					emplacement[x][y] = null;
+				}
+			}
+		}
+	}
 }
