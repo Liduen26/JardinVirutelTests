@@ -1,10 +1,10 @@
-package com.intech.game;
+package com.intech.comptabilite;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GameApplicationTests {
+class ComptabiliteApplicationTests {
 
 	@Test
 	void contextLoads() {

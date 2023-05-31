@@ -10,14 +10,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {		
-		http.authorizeHttpRequests().anyRequest().authenticated().and().httpBasic();
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {	
+		http.csrf().disable().authorizeHttpRequests()
+			.requestMatchers("/").permitAll()
+			.requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
+			.anyRequest().authenticated().and().httpBasic();		
+		http.headers().frameOptions().disable();		
 		return http.build();
 	}
 	
